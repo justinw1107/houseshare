@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:houseshare/pages/chat_page.dart';
+import 'package:houseshare/pages/group_menu.dart';
 import 'package:houseshare/widgets/widgets.dart';
 
 class GroupTile extends StatefulWidget {
@@ -24,11 +25,16 @@ class _GroupTileState extends State<GroupTile> {
       onTap: () {
         nextScreen(
             context,
-            ChatPage(
+            GroupMenu(
               groupId: widget.groupId,
               groupName: widget.groupName,
               userName: widget.userName,
             ));
+        // ChatPage(
+        //   groupId: widget.groupId,
+        //   groupName: widget.groupName,
+        //   userName: widget.userName,
+        // ));
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
