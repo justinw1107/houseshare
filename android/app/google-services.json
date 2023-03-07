@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "937172705233",
+    "project_id": "houseshare-2642c",
+    "storage_bucket": "houseshare-2642c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937172705233:android:6811dbaae485b92d598af0",
+        "android_client_info": {
+          "package_name": "com.example.houseshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937172705233-ppp75g9mabav3hfmfphj81h1c76ku57m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.houseshare",
+            "certificate_hash": "c3df415837bf59fb7ab4b6845a7d84883ef7450d"
+          }
+        },
+        {
+          "client_id": "937172705233-4blusuu6cv10mqqfrn1sptk16jn5tud6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxClb02_j3sgWfzML3hELO6AyAlHbKFQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937172705233-4blusuu6cv10mqqfrn1sptk16jn5tud6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
