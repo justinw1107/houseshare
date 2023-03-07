@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:houseshare/pages/chat_page.dart';
 import 'package:houseshare/pages/group_menu.dart';
 import 'package:houseshare/widgets/widgets.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:houseshare/pages/chat_page.dart';
+import 'package:houseshare/pages/kroger_shop_page.dart';
 import 'package:houseshare/widgets/widgets.dart';
 
 class GroupMenu extends StatefulWidget {
@@ -44,22 +45,22 @@ class _GroupMenuState extends State<GroupMenu> {
                 color: Colors.blue,
                 child: const Center(
                   child:
-                      Text('Feature 1', style: TextStyle(color: Colors.white)),
+                      Text('Open Chat', style: TextStyle(color: Colors.white)),
                 ),
               ),
             ),
             const SizedBox(width: 20),
             GestureDetector(
               onTap: () {
-                // Navigate to feature 2
+                nextScreen(context, KrogerShopPage());
               },
               child: Container(
                 width: 100,
                 height: 100,
                 color: Colors.green,
                 child: const Center(
-                  child:
-                      Text('Feature 2', style: TextStyle(color: Colors.white)),
+                  child: Text('View Groceries',
+                      style: TextStyle(color: Colors.white)),
                 ),
               ),
             ),
