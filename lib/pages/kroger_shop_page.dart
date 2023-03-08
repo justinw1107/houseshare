@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:houseshare/service/auth_service.dart';
 import 'package:houseshare/service/product_service.dart';
 import 'package:houseshare/widgets/show_product_list.dart';
+import 'package:houseshare/service/database_service.dart';
 
 class KrogerShopPage extends StatefulWidget {
   @override
@@ -30,6 +31,11 @@ class _KrogerShopPageState extends State<KrogerShopPage> {
         await ProductService.searchForProducts(_accessToken, searchTerm);
   }
 
+  // // This function adds a product to the list collection in the database
+  // Future<void> _addToSelectedProducts(dynamic product) async {
+  //    await DatabaseService.storeProduct(product);
+  // }
+
   void _addToSelectedProducts(dynamic product) {
     setState(() {
       _selectedProducts.add(product);
@@ -41,7 +47,14 @@ class _KrogerShopPageState extends State<KrogerShopPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Kroger API test'),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: Theme.of(context).primaryColor,
+          title: const Text(
+            "Kroger API test",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 27),
+          ),
           actions: [
             IconButton(
               icon: Icon(Icons.shopping_cart),

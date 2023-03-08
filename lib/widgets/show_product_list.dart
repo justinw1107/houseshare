@@ -10,7 +10,14 @@ class SelectedProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Selected Products'),
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        title: const Text(
+          "Selected Products",
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 27),
+        ),
       ),
       body: selectedProducts.isEmpty
           ? Center(
