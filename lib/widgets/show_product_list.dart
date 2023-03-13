@@ -20,7 +20,7 @@ class SelectedProductsPage extends StatelessWidget {
         ),
       ),
       body: selectedProducts.isEmpty
-          ? Center(
+          ? const Center(
               child: Text('No products selected'),
             )
           : ListView.builder(
@@ -28,7 +28,7 @@ class SelectedProductsPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final product = selectedProducts[index];
                 final productName = product['description'];
-                final productPrice = product['items'][0]['price'];
+                final productPrice = product['items'][0]['price']['regular'];
                 final productImageUri = product['images'][0]['sizes'][0]['url'];
 
                 return ListTile(

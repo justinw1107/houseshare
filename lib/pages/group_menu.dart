@@ -61,7 +61,13 @@ class _GroupMenuState extends State<GroupMenu> {
               const SizedBox(width: 20),
               GestureDetector(
                 onTap: () {
-                  nextScreen(context, KrogerShopPage());
+                  nextScreen(
+                      context,
+                      KrogerShopPage(
+                        groupId: widget.groupId,
+                        groupName: widget.groupName,
+                        userName: widget.userName,
+                      ));
                 },
                 child: Container(
                   width: 150,

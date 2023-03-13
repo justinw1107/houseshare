@@ -3,17 +3,28 @@ import 'package:houseshare/service/auth_service.dart';
 import 'package:houseshare/service/product_service.dart';
 import 'package:houseshare/widgets/show_product_list.dart';
 import 'package:houseshare/service/database_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
 class KrogerShopPage extends StatefulWidget {
+  final String groupId;
+  final String groupName;
+  final String userName;
+  const KrogerShopPage(
+      {Key? key,
+      required this.groupId,
+      required this.groupName,
+      required this.userName})
+      : super(key: key);
+
   @override
   _KrogerShopPageState createState() => _KrogerShopPageState();
 }
 
 class _KrogerShopPageState extends State<KrogerShopPage> {
-  String _accesstoken = '';
   List<dynamic> _products = [];
   List<dynamic> _selectedProducts = [];
-
   String _accessToken = '';
 
   @override
@@ -29,17 +40,6 @@ class _KrogerShopPageState extends State<KrogerShopPage> {
   Future<void> _searchForProducts(String searchTerm) async {
     _products =
         await ProductService.searchForProducts(_accessToken, searchTerm);
-  }
-
-  // // This function adds a product to the list collection in the database
-  // Future<void> _addToSelectedProducts(dynamic product) async {
-  //    await DatabaseService.storeProduct(product);
-  // }
-
-  void _addToSelectedProducts(dynamic product) {
-    setState(() {
-      _selectedProducts.add(product);
-    });
   }
 
   @override
@@ -127,7 +127,7 @@ class _KrogerShopPageState extends State<KrogerShopPage> {
                             ),
                             TextButton(
                               onPressed: () {
-                                _addToSelectedProducts(product);
+                                addToUserList(product);
                                 Navigator.of(context).pop();
                               },
                               child: Text('Add to List'),
@@ -144,5 +144,16 @@ class _KrogerShopPageState extends State<KrogerShopPage> {
         ),
       ),
     );
+  }
+
+  addToUserList(dynamic product) {
+    Map<String, dynamic> selectedProductMap = {
+      'name': product['description'],
+      'price': product['items'][0]['price'],
+      'image': product['images'][0]['sizes'][0]['url'],
+    };
+
+    DatabaseService()
+        .addToUserList(widget.groupId, widget.userName, selectedProductMap);
   }
 }

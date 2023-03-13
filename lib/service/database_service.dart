@@ -136,16 +136,13 @@ class DatabaseService {
     });
   }
 
-  // // this function creates a subcollection called "lists" in the groups collection
-  // // and stores the list of items in the database
-  // static storeProduct(String groupId, String listName, List<String> items) async {
-  //   return await groupCollection
-  //       .doc(groupId)
-  //       .collection("lists")
-  //       .add({"listName": listName, "items": items});
-  // }
-
-  // Future createUserList(String groupId, String uid) async {
-  //   DocumentReference userListReference = await
-  // }
+  addToUserList(
+      String groupId, String userName, Map<String, dynamic> listData) async {
+    groupCollection
+        .doc(groupId)
+        .collection("lists")
+        .doc(userName)
+        .collection("userList")
+        .add(listData);
+  }
 }
